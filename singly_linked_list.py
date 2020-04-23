@@ -16,7 +16,7 @@ class LinkedList(object):
 	def __init__(self, head=None):
 		self.head = head 
 	
-	#insert new node at head og linked list 
+	#insert new node at head of linked list 
 	def insert(self, data):
 		new_node = Node(data)
 		new_node.set_next(self.head)
@@ -34,7 +34,7 @@ class LinkedList(object):
 		current = self.head
 		found = False 
 		while current and found is False:
-			if current.get_next == data:
+			if current.get_data() == data:
 				found = True
 			else:
 				current = current.get_next()
@@ -68,6 +68,10 @@ class LinkedList(object):
 my_list = LinkedList()
 my_list.insert(1)
 my_list.insert(2)
+my_list.insert(3
 my_list.print_nodes()
+search_node = my_list.search(1)
+print(search_node.get_data())
+
 
 
