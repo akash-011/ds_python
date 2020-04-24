@@ -64,14 +64,19 @@ class LinkedList(object):
 		while current:
 			print(current.get_data())
 			current = current.get_next()
+	
+	#add node to the tail of the list
+	def append(self, data):
+		new_node = Node(data)
 
-my_list = LinkedList()
-my_list.insert(1)
-my_list.insert(2)
-my_list.insert(3
-my_list.print_nodes()
-search_node = my_list.search(1)
-print(search_node.get_data())
-
+		if self.head is None:
+			self.head = new_node
+			return
+		
+		last_node = self.head
+		while last_node.next_node:
+			last_node = last_node.get_next()
+		last_node.set_next(new_node)
+		
 
 
