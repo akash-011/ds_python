@@ -17,7 +17,7 @@ class LinkedList(object):
 		self.head = head 
 	
 	#insert new node at head of linked list 
-	def insert(self, data):
+	def prepend(self, data):
 		new_node = Node(data)
 		new_node.set_next(self.head)
 		self.head = new_node 
