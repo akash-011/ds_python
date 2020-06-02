@@ -59,6 +59,26 @@ class LinkedList(object):
 		else:
 			previous.set_next(current.get_next())
 	
+	def delete_with_position(self, position):
+		current = self.head
+		previous = None
+		if position == 0:
+			self.head = current.get_next()
+			current = None
+			return
+		count = 0
+		while current and count != position:
+			previous = current
+			current = current.get_next()
+			count += 1
+		
+		if current is None:
+			print("Node not found")
+			return
+		
+		previous.set_next(current.get_next())
+		current = None
+
 	def print_nodes(self):
 		current = self.head
 		while current:
@@ -81,9 +101,16 @@ class LinkedList(object):
 	def insert(self,prev_node, data):
 		if not prev_node:
 			print("Prev Node doesnt exist")
+			return
 
 		new_node = Node(data)
 		new_node.set_next(prev_node.next_node)
 		prev_node.set_next(new_node)
 
-	
+llist = LinkedList()
+llist.append('a')
+llist.append('b')
+llist.append('c')
+llist.append('d')
+llist.delete_with_position(2)
+llist.print_nodes()
