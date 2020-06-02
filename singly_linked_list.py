@@ -86,13 +86,4 @@ class LinkedList(object):
 		new_node.set_next(prev_node.next_node)
 		prev_node.set_next(new_node)
 
-		
-
-
-llist = LinkedList()
-llist.append('A')
-llist.append('B')
-llist.append('C')
-llist.append('D')
-llist.insert(llist.head.next_node, 'E')
-llist.print_nodes()
+	
