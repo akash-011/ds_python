@@ -106,11 +106,3 @@ class LinkedList(object):
 		new_node = Node(data)
 		new_node.set_next(prev_node.next_node)
 		prev_node.set_next(new_node)
-
-llist = LinkedList()
-llist.append('a')
-llist.append('b')
-llist.append('c')
-llist.append('d')
-llist.delete_with_position(2)
-llist.print_nodes()
