@@ -106,3 +106,28 @@ class LinkedList(object):
 		new_node = Node(data)
 		new_node.set_next(prev_node.next_node)
 		prev_node.set_next(new_node)
+
+	def len(self):
+		count = 0
+		current = self.head
+		while current:
+			count += 1
+			current = current.get_next()
+		return count
+
+	def len_recursive(self, node):
+		if node is None:
+			return 0
+		return 1 + self.len_recursive(node.get_next())
+		
+
+
+
+
+llist = LinkedList()
+llist.append('a')
+llist.append('b')
+llist.append('c')
+llist.append('d')
+llist.prepend('x')
+print(llist.len_recursive(llist.head))
