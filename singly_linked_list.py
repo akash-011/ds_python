@@ -77,6 +77,22 @@ class LinkedList(object):
 		while last_node.next_node:
 			last_node = last_node.get_next()
 		last_node.set_next(new_node)
+
+	def insert(self,prev_node, data):
+		if not prev_node:
+			print("Prev Node doesnt exist")
+
+		new_node = Node(data)
+		new_node.set_next(prev_node.next_node)
+		prev_node.set_next(new_node)
+
 		
 
 
+llist = LinkedList()
+llist.append('A')
+llist.append('B')
+llist.append('C')
+llist.append('D')
+llist.insert(llist.head.next_node, 'E')
+llist.print_nodes()
