@@ -2,3 +2,4 @@
 
 Data Structures included in this repository:
 * Singly Linked List
+* Stack
