@@ -56,8 +56,10 @@ class LinkedList(object):
 			raise ValueError("Data not found")
 		if previous is None:
 			self.head = current.get_next()
+			current = None
 		else:
 			previous.set_next(current.get_next())
+			current = None
 	
 	def delete_with_position(self, position):
 		current = self.head
@@ -172,5 +174,5 @@ llist.append('b')
 llist.append('c')
 llist.append('d')
 llist.prepend('x')
-llist.reverse()
+llist.delete('a')
 llist.print_nodes()
