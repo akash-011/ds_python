@@ -152,6 +152,16 @@ class LinkedList(object):
 		
 		current_1.next_node, current_2.next_node = current_2.next_node, current_1.next_node
 
+	def reverse(self):
+		current = self.head
+		previous = None
+
+		while current:
+			nxt = current.get_next()
+			current.next_node = previous
+			previous = current
+			current = nxt
+		self.head = previous
 
 
 
@@ -162,5 +172,5 @@ llist.append('b')
 llist.append('c')
 llist.append('d')
 llist.prepend('x')
-llist.node_swap('a', 'x')
+llist.reverse()
 llist.print_nodes()
