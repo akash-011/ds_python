@@ -120,6 +120,38 @@ class LinkedList(object):
 			return 0
 		return 1 + self.len_recursive(node.get_next())
 		
+	def node_swap(self, key_1, key_2):
+		if key_1 == key_2:
+			return
+		
+		current_1 = self.head
+		previous_1 = None
+
+		while current_1 and current_1.get_data() != key_1:
+			previous_1 = current_1
+			current_1 = current_1.get_next()
+
+		current_2 = self.head
+		previous_2 = None
+		while current_2 and current_2.get_data() != key_2:
+			previous_2 = current_2
+			current_2 = current_2.get_next()
+
+		if not current_2 or not current_1:
+			return
+		
+		if previous_1:
+			previous_1.next_node = current_2
+		else:
+			self.head = current_2
+
+		if previous_2:
+			previous_2.next_node = current_1
+		else:
+			self.head = current_1
+		
+		current_1.next_node, current_2.next_node = current_2.next_node, current_1.next_node
+
 
 
 
@@ -130,4 +162,5 @@ llist.append('b')
 llist.append('c')
 llist.append('d')
 llist.prepend('x')
-print(llist.len_recursive(llist.head))
+llist.node_swap('a', 'x')
+llist.print_nodes()
