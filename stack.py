@@ -18,4 +18,4 @@ class Stack(object):
 	def get_stack(self):
 		return self.items
 
-# in python , lists can be used as stacks or deque form collection or LifoQueue from Queue
+# in python , lists, deque from collections or LifoQueue from queue can be used as stacks
