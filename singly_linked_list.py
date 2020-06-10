@@ -165,14 +165,50 @@ class LinkedList(object):
 			current = nxt
 		self.head = previous
 
+	def merge_sorted(self, llist):
+	
+		ssl_1 = self.head 
+		ssl_2 = llist.head
+		s = None
+	
+		if not ssl_1:
+			return ssl_2
+		if not ssl_2:
+			return ssl_1
+
+		if ssl_1 and ssl_2:
+			if ssl_1.get_data() <= ssl_2.get_data():
+				s = ssl_1 
+				ssl_1 = s.next_node
+			else:
+				s = ssl_2
+				ssl_2 = s.next_node
+			new_head = s 
+		while ssl_1 and ssl_2:
+			if ssl_1.get_data() <= ssl_2.get_data():
+				s.set_next(ssl_1)
+				s = ssl_1 
+				ssl_1 = s.next_node
+			else:
+				s.set_next(ssl_2)
+				s = ssl_2
+				ssl_2 = s.next_node
+		if not ssl_1:
+			s.set_next(ssl_2) 
+		if not ssl_2:
+			s.set_next(ssl_1) 
+		return new_head
 
 
 
 llist = LinkedList()
-llist.append('a')
-llist.append('b')
-llist.append('c')
-llist.append('d')
-llist.prepend('x')
-llist.delete('a')
+llist.append('1')
+llist.append('4')
+
+llist2 = LinkedList()
+llist2.append('2')
+llist2.append('3')
+
+
+llist.merge_sorted(llist2)
 llist.print_nodes()
