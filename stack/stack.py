@@ -18,4 +18,7 @@ class Stack(object):
 	def get_stack(self):
 		return self.items
 
+
+if __name__ == "__main__":
+	main()
 # in python , lists, deque from collections or LifoQueue from queue can be used as stacks

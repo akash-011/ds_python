@@ -179,36 +179,37 @@ class LinkedList(object):
 		if ssl_1 and ssl_2:
 			if ssl_1.get_data() <= ssl_2.get_data():
 				s = ssl_1 
-				ssl_1 = s.next_node
+				ssl_1 = ssl_1.get_next()
 			else:
 				s = ssl_2
-				ssl_2 = s.next_node
+				ssl_2 = ssl_2.get_next()
 			new_head = s 
 		while ssl_1 and ssl_2:
 			if ssl_1.get_data() <= ssl_2.get_data():
 				s.set_next(ssl_1)
 				s = ssl_1 
-				ssl_1 = s.next_node
+				ssl_1 = ssl_1.get_next()
 			else:
 				s.set_next(ssl_2)
 				s = ssl_2
-				ssl_2 = s.next_node
+				ssl_2 = ssl_2.get_next()
 		if not ssl_1:
 			s.set_next(ssl_2) 
 		if not ssl_2:
 			s.set_next(ssl_1) 
+	 
 		return new_head
 
 
+l1 = LinkedList()
+l1.append(1)
+l1.append(3)
+l1.append(5)
 
-llist = LinkedList()
-llist.append('1')
-llist.append('4')
+l2 = LinkedList()
+l2.append(2)
+l2.append(4)
+l2.append(6)
 
-llist2 = LinkedList()
-llist2.append('2')
-llist2.append('3')
-
-
-llist.merge_sorted(llist2)
-llist.print_nodes()
+l1.merge_sorted(l2)
+l1.print_nodes()
