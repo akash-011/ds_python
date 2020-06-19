@@ -14,4 +14,5 @@ def divide_by_2(num):
 	
 	return ans 
 
-print(divide_by_2(242))
+if __name__ = "__main__":
+	print(divide_by_2(242))

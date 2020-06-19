@@ -200,16 +200,16 @@ class LinkedList(object):
 	 
 		return new_head
 
+if __name__ == "__main__":
+	l1 = LinkedList()
+	l1.append(1)
+	l1.append(3)
+	l1.append(5)
 
-l1 = LinkedList()
-l1.append(1)
-l1.append(3)
-l1.append(5)
+	l2 = LinkedList()
+	l2.append(2)
+	l2.append(4)
+	l2.append(6)
 
-l2 = LinkedList()
-l2.append(2)
-l2.append(4)
-l2.append(6)
-
-l1.merge_sorted(l2)
-l1.print_nodes()
+	l1.merge_sorted(l2)
+	l1.print_nodes()
