@@ -29,3 +29,4 @@ if __name__ == "__main__":
 	ssl.append('f')
 	x = remove_duplicates(ssl)
 	x.print_nodes()
+	
