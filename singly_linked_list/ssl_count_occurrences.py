@@ -9,7 +9,15 @@ def count_occurencces(ssl, data):
 		current = current.get_next()
 
 	return count 
-		
+
+def count_occurencces_recursive(ssl, node, data):
+	if not node:
+		return 0
+	if node.get_data() == data:
+		return 1 + count_occurencces_recursive(ssl, node.next_node, data)
+	else:
+		return count_occurencces_recursive(ssl, node.next_node, data)
+
 if __name__ == "__main__":
 	ssl = LinkedList()
 	ssl.append(1)
@@ -20,5 +28,5 @@ if __name__ == "__main__":
 	ssl.append(1)
 	ssl.append(9)
 	ssl.append(1)
-	print(count_occurencces(ssl, 1))
+	print(count_occurencces_recursive(ssl, ssl.head, 1))
 	
