@@ -202,18 +202,36 @@ class LinkedList(object):
 
 	def print_nth_last_node(self, n):
 
-		ssl_len =  self.len()
-		current = self.head
-		while current:
-			if ssl_len == n:
-				print(current.get_data())
-				return current
-			ssl_len -= 1
-			current = current.get_next()
-			if current is None:
-				return 
+		#Method 1 
+		# ssl_len =  self.len()
+		# current = self.head
+		# while current:
+		# 	if ssl_len == n:
+		# 		print(current.get_data())
+		# 		return current
+		# 	ssl_len -= 1
+		# 	current = current.get_next()
+		# 	if current is None:
+		# 		return 
+	
+		#Method 2 - using 2 pointers 
+		p = self.head 
+		q = self.head 
+		count = 0 
 
-
+		while q and n>0:
+			q = q.get_next()
+			n = n-1
+		
+		
+		if not q:
+			print("Node not found")
+		
+		while p and q:
+			p = p.get_next()
+			q = q.get_next()
+			
+		return p.get_data()
 
 if __name__ == "__main__":
 	l1 = LinkedList()
