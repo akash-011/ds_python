@@ -257,14 +257,25 @@ class LinkedList(object):
 		p.set_next(None)
 
 
+	def is_palindrome_1(self):
+	# is_palindtome method 1
+	
+		s = ""
+		current = self.head
+		
+		while current:
+			s += current.get_data()
+			current = current.get_next()
+
+		return s == s[::-1]
+	
 
 if __name__ == "__main__":
 	l1 = LinkedList()
-	l1.append(1)
-	l1.append(2)
-	l1.append(3)
-	l1.append(4)
-	l1.append(5)
-	l1.append(6)
-	l1.rotate(4)
+	l1.append("T")
+	l1.append("E")
+	l1.append("S")
+	l1.append("T")
+	l1.append("S")
+	print(l1.is_palindrome_1())
 	
