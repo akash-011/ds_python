@@ -233,10 +233,38 @@ class LinkedList(object):
 			
 		return p.get_data()
 
+
+	def rotate(self, k):
+		p = self.head 
+		q = self.head 
+		prev = None
+		count = 0 
+
+		while p and count < k:
+			prev = p
+			p = p.get_next()
+			q = q.get_next()
+			count = count + 1
+		p = prev
+
+		while q:
+			prev = q
+			q = q.get_next()
+		q = prev
+		
+		q.set_next(self.head)
+		self.head = p.get_next()
+		p.set_next(None)
+
+
+
 if __name__ == "__main__":
 	l1 = LinkedList()
 	l1.append(1)
+	l1.append(2)
 	l1.append(3)
+	l1.append(4)
 	l1.append(5)
 	l1.append(6)
-	l1.print_nth_last_node(3)
+	l1.rotate(4)
+	
