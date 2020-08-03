@@ -285,15 +285,25 @@ class LinkedList(object):
                 return False
             return True 
         
+    def move_tail_to_head(self):
+        last = self.head
+        second_last = None 
 
+        while last.get_next():
+            second_last = last
+            last = last.get_next()
         
+        last.set_next(self.head)
+        second_last.set_next(None)
+        self.head = last
 
 if __name__ == "__main__":
     l1 = LinkedList()
-    l1.append("R")
     l1.append("A")
+    l1.append("B")
+    l1.append("C")
     l1.append("D")
-    l1.append("A")
-    l1.append("R")
-    print(l1.is_palindrome_2())
+    l1.append("E")
+    l1.move_tail_to_head()
+    l1.print_nodes()
     
