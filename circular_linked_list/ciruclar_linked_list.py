@@ -53,12 +53,34 @@ class CircularLinkedList(Node):
                 current = current.get_next()
             current.set_next(new_node)
         self.head = new_node
+    
+
+    def delete_node(self, data):
+
+        if self.head.get_data() == data:
+            current = self.head
+            while current.get_next() != self.head:
+                current = current.get_next()
+            current.set_next(self.head.get_next())
+            self.head = self.head.get_next()
+        else:
+            current = self.head
+            prev = None
+            while current.get_next() != self.head:
+                prev = current
+                current = current.get_next()
+                if current.get_data() == data:
+                    prev.set_next(current.get_next())
+                    current = current.get_next()
+
+
 
 
 if __name__ == "__main__":
     cll = CircularLinkedList()
     cll.append('a')
     cll.append('b')
-    cll.prepend('A')
-    cll.prepend('B')
+    cll.prepend('c')
+    cll.prepend('d')
+    cll.delete_node('b')
     cll.print_list()
