@@ -5,3 +5,4 @@ Data Structures included in this repository:
 - Stack
 - Queue 
 - Priority Queue
+- Circular Linked List
