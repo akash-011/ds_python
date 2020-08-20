@@ -85,14 +85,42 @@ class CircularLinkedList(Node):
         return count 
 
     def split_list(self):
-        pass
+        
+        size = len(self)
 
+        if size == 0:
+            return None
+        if size == 1:
+            return self.head
+        
+        mid_point = size/2
+        count = 0
+
+        current = self.head
+        prev = None
+
+        while current and count < mid_point:
+            count +=1 
+            prev = current 
+            current = current.get_next()
+        prev.set_next(self.head)
+
+        split_list = CircularLinkedList()
+
+        while current.get_next() != self.head:
+            split_list.append(current.get_data())
+            current = current.get_next()
+        split_list.append(current.get_data())
+
+        self.print_list()
+        print('\n')
+        split_list.print_list()
 
 
 if __name__ == "__main__":
     cll = CircularLinkedList()
     cll.append('a')
     cll.append('b')
-    cll.prepend('c')
-    print(len(cll))
-    cll.print_list()
+    cll.append('c')
+    cll.append('d')
+    cll.split_list()
