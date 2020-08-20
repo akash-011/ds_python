@@ -73,6 +73,19 @@ class CircularLinkedList(Node):
                     prev.set_next(current.get_next())
                     current = current.get_next()
 
+    def __len__(self):
+
+        current = self.head
+        count = 0
+        while current:
+            count += 1
+            current = current.get_next()
+            if current == self.head:
+                break
+        return count 
+
+    def split_list(self):
+        pass
 
 
 
@@ -81,6 +94,5 @@ if __name__ == "__main__":
     cll.append('a')
     cll.append('b')
     cll.prepend('c')
-    cll.prepend('d')
-    cll.delete_node('b')
+    print(len(cll))
     cll.print_list()
