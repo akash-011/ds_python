@@ -147,7 +147,15 @@ class CircularLinkedList(Node):
 
             current = current.get_next()
 
+    def is_circular_linked_list(self, l_list):
 
+        current = l_list.head
+        while current.get_next():
+            current = current.get_next()
+            if current.get_next() == l_list.head:
+                return True
+            
+        return False
 
 if __name__ == "__main__":
     cll = CircularLinkedList()
@@ -155,5 +163,5 @@ if __name__ == "__main__":
     cll.append('b')
     cll.append('c')
     cll.append('d')
-    cll.josephus_problem(2)
+    print(cll.is_circular_linked_list(cll))
     cll.print_list()
