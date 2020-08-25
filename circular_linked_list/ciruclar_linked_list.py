@@ -55,7 +55,7 @@ class CircularLinkedList(Node):
         self.head = new_node
     
 
-    def delete_node(self, data):
+    def delete(self, data):
 
         if self.head.get_data() == data:
             current = self.head
@@ -115,6 +115,38 @@ class CircularLinkedList(Node):
         self.print_list()
         print('\n')
         split_list.print_list()
+    
+    def remove_node(self, node):
+
+        if self.head == node:
+            current = self.head
+            while current.get_next() != self.head:
+                current = current.get_next()
+            current.set_next(self.head.get_next())
+            self.head = self.head.get_next()
+        else:
+            current = self.head
+            prev = None
+            while current.get_next() != self.head:
+                prev = current
+                current = current.get_next()
+                if current == node:
+                    prev.set_next(current.get_next())
+                    current = current.get_next()
+
+    def josephus_problem(self, step):
+        
+        current = self.head
+
+        while len(self) > 1:
+            count = 1
+            while count != step:
+                current = current.get_next()
+                count +=1 
+            self.remove_node(current)
+
+            current = current.get_next()
+
 
 
 if __name__ == "__main__":
@@ -123,4 +155,5 @@ if __name__ == "__main__":
     cll.append('b')
     cll.append('c')
     cll.append('d')
-    cll.split_list()
+    cll.josephus_problem(2)
+    cll.print_list()
