@@ -25,5 +25,35 @@ class DoublyLinkedList(Node):
     def __init__(self):
         self.head = None 
     
-    def append():
-        pass 
+    def append(self, data): 
+
+        new_node = Node(data)
+
+        if self.head is  None:
+            self.head = new_node
+        else:
+            current = self.head
+
+            while current.get_next():
+                current = current.get_next()
+
+            current.set_next(new_node)
+            new_node.set_prev(current)
+
+
+    def print_list(self):
+
+        current = self.head
+        while current:
+            print(current.get_data())
+            current = current.get_next()
+        
+
+if __name__ == "__main__":
+    dll = DoublyLinkedList()
+    dll.append('a')
+    dll.append('b')
+    dll.append('c')
+    dll.print_list()
+
+        
