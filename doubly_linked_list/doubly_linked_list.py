@@ -40,6 +40,15 @@ class DoublyLinkedList(Node):
             current.set_next(new_node)
             new_node.set_prev(current)
 
+    def prepend(self, data):
+
+        new_node = Node(data)
+        if self.head:
+            new_node.set_next(self.head)
+            self.head.set_prev(new_node)
+            self.head = new_node
+        else:
+            self.head = new_node
 
     def print_list(self):
 
@@ -51,9 +60,10 @@ class DoublyLinkedList(Node):
 
 if __name__ == "__main__":
     dll = DoublyLinkedList()
-    dll.append('a')
-    dll.append('b')
-    dll.append('c')
+    # dll.append('a')
+    # dll.append('b')
+    # dll.append('c')
+    dll.prepend('x')
     dll.print_list()
 
         
