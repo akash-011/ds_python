@@ -58,8 +58,9 @@ class DoublyLinkedList(Node):
         current = self.head
  
         while current:
-            if current.get_next is None and current.get_data() == key:
+            if current.get_next() is None and current.get_data() == key:
                 self.append(data)
+                return
             elif current.get_data() == key:
                 new_node = Node(data)
                 next_node = current.get_next()
@@ -70,6 +71,23 @@ class DoublyLinkedList(Node):
 
             current = current.get_next()
 
+    def add_node_before(self, data, key):
+
+        current = self.head
+
+        while current:
+            if current.get_next() is None and current.get_data() == key:
+                self.prepend(data)
+                return
+            elif current.get_data() == key:
+                new_node = Node(data)
+                prev = current.get_prev()
+                prev.set_next(new_node)
+                new_node.set_prev(prev)
+                new_node.set_next(current)
+                current.set_prev(new_node)
+            
+            current = current.get_next()
 
     def print_list(self):
 
@@ -85,7 +103,8 @@ if __name__ == "__main__":
     dll.append('b')
     dll.append('c')
     dll.prepend('x')
-    dll.add_node_after('z', 'b')
+    dll.add_node_after('z', 'c')
+    dll.add_node_before('w', 'b')
     dll.print_list()
 
         
