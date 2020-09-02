@@ -51,7 +51,47 @@ class DoublyLinkedList(Node):
             self.head = new_node
 
     def delete(self, data):
-        pass
+        
+        current = self.head 
+        while current:
+            if current.get_data() == data and current == self.head:
+                if not current.get_next():
+                    current = None 
+                    self.head = None
+                    return 
+                else:
+                    nxt = current.get_next()
+                    current.set_next(None)
+                    current = None 
+                    nxt.set_prev(None)
+                    self.head = nxt
+                    return 
+                
+            elif current.get_data() == data:
+                if current.get_next():
+                    prev = current.get_prev()
+                    nxt = current.get_next()
+                    prev.set_next(nxt)
+                    nxt.set_prev(prev)
+                    current.set_next(None)
+                    current.set_prev(None)
+                    current = None 
+                    return
+                else:
+                    prev = current.get_prev()
+                    prev.set_next(None)
+                    current.set_prev(None)
+                    current = None 
+                    return
+
+            current = current.get_next()
+
+
+
+
+
+                    
+        
 
     def add_node_after(self, data, key):
 
@@ -103,8 +143,7 @@ if __name__ == "__main__":
     dll.append('b')
     dll.append('c')
     dll.prepend('x')
-    dll.add_node_after('z', 'c')
-    dll.add_node_before('w', 'b')
+    dll.delete('c')
     dll.print_list()
 
         
