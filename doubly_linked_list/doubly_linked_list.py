@@ -141,6 +141,57 @@ class DoublyLinkedList(Node):
             current = current.get_prev()
         if temp:
              self.head = temp.get_prev()
+    
+    def delete_node(self, node):
+
+        current = self.head 
+        while current:
+            if current == node and current == self.head:
+                if not current.get_next():
+                    current = None 
+                    self.head = None
+                    return 
+                else:
+                    nxt = current.get_next()
+                    current.set_next(None)
+                    current = None 
+                    nxt.set_prev(None)
+                    self.head = nxt
+                    return 
+                
+            elif current == node:
+                if current.get_next():
+                    prev = current.get_prev()
+                    nxt = current.get_next()
+                    prev.set_next(nxt)
+                    nxt.set_prev(prev)
+                    current.set_next(None)
+                    current.set_prev(None)
+                    current = None 
+                    return
+                else:
+                    prev = current.get_prev()
+                    prev.set_next(None)
+                    current.set_prev(None)
+                    current = None 
+                    return
+
+            current = current.get_next()
+
+
+    def remove_duplicates(self):
+        
+        hash_table = {}
+        current = self.head 
+        while current:
+            if current.get_data() not in hash_table:
+                hash_table[current.get_data()] = 1
+                current = current.get_next()
+            else:
+                nxt = current.get_next()
+                self.delete_node(current)
+                current = nxt 
+  
 
 if __name__ == "__main__":
     dll = DoublyLinkedList()
@@ -148,8 +199,13 @@ if __name__ == "__main__":
     dll.append('b')
     dll.append('c')
     dll.append('d')
-    dll.print_list()
-    print('\n')
-    dll.reverse()
+    dll.append('a')
+    dll.append('e')
+    dll.append('b')
+    dll.append('a')
+    dll.append('f')
+    dll.append('d')
+    dll.append('d')
+    dll.remove_duplicates()
     dll.print_list()
         
