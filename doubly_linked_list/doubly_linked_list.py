@@ -87,12 +87,6 @@ class DoublyLinkedList(Node):
             current = current.get_next()
 
 
-
-
-
-                    
-        
-
     def add_node_after(self, data, key):
 
         current = self.head
@@ -135,15 +129,27 @@ class DoublyLinkedList(Node):
         while current:
             print(current.get_data())
             current = current.get_next()
-        
+    
+    def reverse(self):
+
+        temp = None 
+        current = self.head 
+        while current:
+            temp = current.get_prev()
+            current.set_prev(current.get_next())
+            current.set_next(temp)
+            current = current.get_prev()
+        if temp:
+             self.head = temp.get_prev()
 
 if __name__ == "__main__":
     dll = DoublyLinkedList()
     dll.append('a')
     dll.append('b')
     dll.append('c')
-    dll.prepend('x')
-    dll.delete('c')
+    dll.append('d')
     dll.print_list()
-
+    print('\n')
+    dll.reverse()
+    dll.print_list()
         
