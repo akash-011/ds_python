@@ -191,21 +191,32 @@ class DoublyLinkedList(Node):
                 nxt = current.get_next()
                 self.delete_node(current)
                 current = nxt 
+    
+    def pair_with_sum(self, total):
+
+        pairs = []
+        current = self.head 
+        q = None
+
+        while current:
+            q = current.get_next()
+            while q:
+                if current.get_data() + q.get_data() == total:
+                    pairs.append("(" + str(current.get_data()) + "," + str(q.get_data()) + ")")
+                q =  q.get_next()
+            current = current.get_next()
+        
+        return pairs
+
   
 
 if __name__ == "__main__":
     dll = DoublyLinkedList()
-    dll.append('a')
-    dll.append('b')
-    dll.append('c')
-    dll.append('d')
-    dll.append('a')
-    dll.append('e')
-    dll.append('b')
-    dll.append('a')
-    dll.append('f')
-    dll.append('d')
-    dll.append('d')
-    dll.remove_duplicates()
-    dll.print_list()
+    dll.append(1)
+    dll.append(2)
+    dll.append(3)
+    dll.append(4)
+    dll.append(5)
+    print(dll.pair_with_sum(5))
+
         
