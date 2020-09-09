@@ -7,3 +7,4 @@ Data Structures included in this repository:
 - Priority Queue
 - Circular Linked List
 - Doubly Linked List
+- Arrays 

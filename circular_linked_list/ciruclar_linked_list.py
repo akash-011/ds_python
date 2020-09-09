@@ -165,3 +165,4 @@ if __name__ == "__main__":
     cll.append('d')
     print(cll.is_circular_linked_list(cll))
     cll.print_list()
+    
