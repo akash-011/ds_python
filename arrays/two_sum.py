@@ -26,7 +26,8 @@ def two_sum_2(arr, target):
             hash_table[target - arr[i]] = arr[i]
     return False       
 
-
+#Time complexity - O(n)
+#Space Complexity - O(1)
 def two_sum_3(arr, target):
     #array needs to be sorted for this to work
     i = 0
