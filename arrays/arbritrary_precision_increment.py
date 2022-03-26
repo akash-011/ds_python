@@ -6,6 +6,7 @@ Given an array non-negative digits that represent a decimal interger
 add one to the integer. Assume the solution still works even if implemented in a laguage with finite precision arithmetic
 """
 
+
 def precision_increment(arr):
     arr[-1] += 1 
     for i in reversed(range(1, len(arr))):
@@ -19,7 +20,7 @@ def precision_increment(arr):
         arr.append(0)
     return arr
 
+
 if __name__ == "__main__":
     
     print(precision_increment([9,9,9]))
-    
