@@ -28,6 +28,6 @@ if __name__ == "__main__":
 	pq.insert(1) 
 	pq.insert(14) 
 	pq.insert(7) 
-	print(pq)             
-	while not pq.is_empty(): 
+	print(pq)
+	while not pq.is_empty():
 		print(pq.remove())

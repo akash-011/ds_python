@@ -9,4 +9,5 @@ heapq.heappush(my_pq,(5, "Phil"))
 heapq.heappush(my_pq,(1, "Paul"))
 
 while my_pq:
+	print(my_pq)
 	print(heapq.heappop(my_pq))
