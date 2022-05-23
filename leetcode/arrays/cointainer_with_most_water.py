@@ -8,6 +8,23 @@ Return the maximum amount of water a container can store.
 link : https://leetcode.com/problems/container-with-most-water/
 """
 
-def max_area(height):
-    
 
+def maxArea(height):
+    area = 0
+    start = 0
+    end = len(height) - 1
+
+    if len(height) == 2:
+        return min(height)
+
+    while start < end:
+        min_height = min(height[start], height[end])
+        area = max(area, (min_height * (end-start)))
+        print(area)
+        if height[start] < height[end]:
+            start += 1
+        else:
+            end -= 1
+    return area
+
+maxArea([4,3,2,1,4])
