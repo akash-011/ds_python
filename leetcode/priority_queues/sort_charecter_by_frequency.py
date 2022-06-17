@@ -16,8 +16,21 @@ def sort_charecters_by_frequency(s):
         else:
             hash_map[i] += 1
     res = []
-    for k, v in sorted(hash_map.items(), key= lambda x: -x[1]):
+    for k, v in sorted(hash_map.items(), key= lambda x: x[1], reverse=True):
         res += [k] * v
     return "".join(res)
 
-print(sort_charecters_by_frequency('abba'))
+print(sort_charecters_by_frequency('abbafkkkij'))
+
+def sort_chars_by_freq(s):
+    """Use a priority queue"""
+    cnt = collections.Counter()
+
+    pq = [(-v,k) for k in cnt.items()]
+    heapq.heapify(pq)
+
+    res= []
+    while heap:
+        v, k = heapq.heappop(pq)
+        res += [k] * -v
+    return ''.join(res)
