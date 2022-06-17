@@ -6,8 +6,11 @@ Return the sorted string. If there are multiple answers, return any of them.
 https://leetcode.com/problems/sort-characters-by-frequency
 """
 
+import collections
+import heapq
 
-def sort_charecters_by_frequency(s):
+
+def sort_characters_by_frequency(s):
 
     hash_map = {}
     for i in s:
@@ -20,17 +23,19 @@ def sort_charecters_by_frequency(s):
         res += [k] * v
     return "".join(res)
 
-print(sort_charecters_by_frequency('abbafkkkij'))
 
 def sort_chars_by_freq(s):
     """Use a priority queue"""
-    cnt = collections.Counter()
-
-    pq = [(-v,k) for k in cnt.items()]
+    cnt = collections.Counter(s)
+    pq = [(-v,k) for k, v in cnt.items()]
     heapq.heapify(pq)
+    print(pq)
 
     res= []
-    while heap:
+    while pq:
         v, k = heapq.heappop(pq)
         res += [k] * -v
     return ''.join(res)
+
+
+print(sort_chars_by_freq('abbafkkkij'))
